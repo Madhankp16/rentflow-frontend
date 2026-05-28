@@ -57,7 +57,6 @@ export default function Login() {
           <h1 style={{ fontFamily: 'Syne', fontSize: 32, fontWeight: 800 }}>RentFlow</h1>
           <p style={{ color: 'var(--text2)', marginTop: 6 }}>Asset Rental Management System</p>
         </div>
-
         {/* Card */}
         <div className="card" style={{ padding: 32 }}>
           <h2 style={{ fontFamily: 'Syne', fontSize: 20, fontWeight: 700, marginBottom: 24 }}>
@@ -65,60 +64,28 @@ export default function Login() {
           </h2>
 
           <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-            <div className="input-group">
-              <label>Email</label>
-              <div style={{ position: 'relative' }}>
-                <Mail size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  style={{ paddingLeft: 38 }}
-                  required
-                />
-              </div>
-            </div>
-
-            <div className="input-group">
-              <label>Password</label>
-              <div style={{ position: 'relative' }}>
-                <Lock size={16} style={{ position: 'absolute', left: 12, top: '50%', transform: 'translateY(-50%)', color: 'var(--text3)' }} />
-                <input
-                  type={showPass ? 'text' : 'password'}
-                  placeholder="••••••••"
-                  value={form.password}
-                  onChange={(e) => setForm({ ...form, password: e.target.value })}
-                  style={{ paddingLeft: 38, paddingRight: 40 }}
-                  required
-                />
-                <button
-                  type="button"
-                  onClick={() => setShowPass(!showPass)}
-                  style={{ position: 'absolute', right: 12, top: '50%', transform: 'translateY(-50%)', background: 'none', border: 'none', cursor: 'pointer', color: 'var(--text3)' }}
-                >
-                  {showPass ? <EyeOff size={16} /> : <Eye size={16} />}
-                </button>
-              </div>
-            </div>
-
-            <button
-              type="submit"
-              className="btn btn-primary btn-lg w-full"
-              style={{ justifyContent: 'center', marginTop: 8 }}
-              disabled={loading}
-            >
-              {loading ? <span className="spinner" /> : 'உள்நுழை'}
-            </button>
+            {/* form fields */}
           </form>
 
           <p style={{ textAlign: 'center', marginTop: 20, fontSize: 14, color: 'var(--text2)' }}>
-            கணக்கு இல்லையா?{' '}
+            Don't have an account?{' '}
             <Link to="/register" style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              பதிவு செய்க
+              Register
             </Link>
           </p>
         </div>
+
+        <p
+          style={{
+            textAlign: 'center',
+            marginTop: 20,
+            color: 'var(--text3)',
+            fontSize: 13,
+          }}
+        >
+        Created by Madhan
+        </p>
+
       </div>
     </div>
   );
